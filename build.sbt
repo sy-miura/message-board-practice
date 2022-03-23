@@ -10,15 +10,14 @@ scalaVersion := "2.13.8"
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
 libraryDependencies ++= Seq(
-  "org.scalikejdbc"        %% "scalikejdbc"                     % "3.2.3",
-  "org.scalikejdbc"        %% "scalikejdbc-config"              % "3.2.3",
-  "org.scalikejdbc"        %% "scalikejdbc-jsr310"              % "2.5.2",
-  "org.scalikejdbc"        %% "scalikejdbc-test"                % "3.2.3" % Test,
-  "org.scalikejdbc"        %% "scalikejdbc-syntax-support-macro"% "3.2.3",
-  "org.skinny-framework"   %% "skinny-orm"                      % "2.3.7",
-  "org.scalikejdbc"        %% "scalikejdbc-play-initializer"    % "2.6.+",
+  "org.scalikejdbc"        %% "scalikejdbc"                     % "3.5.0",
+  "org.scalikejdbc"        %% "scalikejdbc-config"              % "3.5.0",
+  "org.scalikejdbc"        %% "scalikejdbc-test"                % "3.5.0" % Test,
+  "org.scalikejdbc"        %% "scalikejdbc-syntax-support-macro"% "3.5.0",
+  "org.skinny-framework"   %% "skinny-orm"                      % "3.1.0",
+  "org.scalikejdbc"        %% "scalikejdbc-play-initializer"    % "2.8.0-scalikejdbc-3.5",
   "ch.qos.logback"         % "logback-classic"                  % "1.2.3",
-  "mysql"                  % "mysql-connector-java"             % "6.0.6"
+  "mysql"                  % "mysql-connector-java"             % "8.0.22"
 )
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
