@@ -25,7 +25,7 @@ class CreateMessageController @Inject()(components: ControllerComponents)
         formWithErrors => BadRequest(views.html.create(formWithErrors)), { model =>
           implicit val session = AutoSession
           val now              = ZonedDateTime.now()
-          val message          = Message(None, model.body, now, now)
+          val message          = Message(None, model.title,model.body, now, now)
           val result           = Message.create(message)
           if (result > 0) {
             Redirect(routes.GetMessagesController.index)

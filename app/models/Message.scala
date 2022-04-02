@@ -9,6 +9,7 @@ import skinny.orm._
   * Message
   */
 case class Message(id: Option[Long],
+                   title: String,
                    body: String,
                    createAt: ZonedDateTime,
                    updateAt: ZonedDateTime)
@@ -23,6 +24,7 @@ object Message extends SkinnyCRUDMapper[Message] {
     autoConstruct(rs, rn)
 
   private def toNamedValues(record: Message): Seq[(Symbol, Any)] = Seq(
+    'title    -> record.title,
     'body     -> record.body,
     'createAt -> record.createAt,
     'updateAt -> record.updateAt
