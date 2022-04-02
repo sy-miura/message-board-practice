@@ -1,0 +1,25 @@
+@(var_message: Message)(implicit messagesProvider: MessagesProvider, request: RequestHeader)
+@implicitVerticalFC = @{ b4.vertical.fieldConstructor() }
+@main(Messages("GetMessage")) {
+<div class="container">
+    <h1>@Messages("GetMessage")</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>@Messages("Id")</th>
+            <td>@var_message.id.get</td>
+        </tr>
+        <tr>
+            <th>@Messages("Message")</th>
+            <td>@var_message.body</td>
+        </tr>
+    </table>
+    <a href="@routes.UpdateMessageController.index(var_message.id.get)" class="btn btn-default">@Messages("UpdateMessage")</a>
+    @b4.formCSRF(routes.DeleteMessageController.delete(var_message.id.get)) {
+    @b4.submit('class -> "btn btn-default") {
+    @Messages("DeleteMessage")
+    }
+    }
+
+</div>
+
+}

@@ -4,13 +4,14 @@ import java.time.ZonedDateTime
 
 import scalikejdbc._
 import skinny.orm._
-import java.time.ZonedDateTime
-
 
 /**
   * Message
   */
-case class Message(id: Option[Long], body: String, createAt: ZonedDateTime, updateAt: ZonedDateTime)
+case class Message(id: Option[Long],
+                   body: String,
+                   createAt: ZonedDateTime,
+                   updateAt: ZonedDateTime)
 
 object Message extends SkinnyCRUDMapper[Message] {
 
@@ -18,8 +19,8 @@ object Message extends SkinnyCRUDMapper[Message] {
 
   override def defaultAlias: Alias[Message] = createAlias("m")
 
-  override def extract(rs: WrappedResultSet, n: ResultName[Message]): Message =
-    autoConstruct(rs, n)
+  override def extract(rs: WrappedResultSet, rn: ResultName[Message]): Message =
+    autoConstruct(rs, rn)
 
   private def toNamedValues(record: Message): Seq[(Symbol, Any)] = Seq(
     'body     -> record.body,

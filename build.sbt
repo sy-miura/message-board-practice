@@ -9,6 +9,8 @@ import scala.collection.JavaConverters._
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
+
+
 scalaVersion := "2.13.8"
 
 libraryDependencies += guice
@@ -21,10 +23,13 @@ libraryDependencies ++= Seq(
   "org.skinny-framework"   %% "skinny-orm"                      % "3.1.0",
   "org.scalikejdbc"        %% "scalikejdbc-play-initializer"    % "2.8.0-scalikejdbc-3.5",
   "ch.qos.logback"         % "logback-classic"                  % "1.2.3",
-  "mysql"                  % "mysql-connector-java"             % "8.0.22"
+  "mysql"                  % "mysql-connector-java"             % "8.0.22",
+  "com.adrianhurt"         %% "play-bootstrap"                  % "1.6.1-P28-B4"
 )
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
+TwirlKeys.templateImports ++= Seq("forms._")
+
 
 // Adds additional packages into conf/routes
 // play.sbt.routes.RoutesKeys.routesImport += "com.example.binders._"
@@ -43,3 +48,5 @@ flywayDriver := envConfig.value.getString("jdbcDriver")
 flywayUrl := envConfig.value.getString("jdbcUrl")
 flywayUser := envConfig.value.getString("jdbcUserName")
 flywayPassword := envConfig.value.getString("jdbcPassword")
+
+

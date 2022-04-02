@@ -1,0 +1,18 @@
+@(var_messageForm: Form[MessageForm])(implicit messagesProvider: MessagesProvider, request: RequestHeader)
+@implicitVerticalFC = @{ b4.vertical.fieldConstructor() }
+@main(Messages("CreateMessage")) {
+<div class="container">
+    <h1>@Messages("CreateMessage")</h1>
+    <div class="row">
+        <div class="col-xs-6">
+            @b4.formCSRF(routes.CreateMessageController.create) {
+                 @b4.text(var_messageForm("body"), '_label -> "Message")
+                 @b4.submit('class -> "btn btn-default") {
+                     @Messages("CreateMessage")
+                 }
+            }
+        </div>
+    </div>
+</div>
+
+}
