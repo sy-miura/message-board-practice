@@ -1,7 +1,6 @@
 package models
 
 import java.time.ZonedDateTime
-
 import scalikejdbc._
 import skinny.orm._
 
@@ -9,7 +8,7 @@ import skinny.orm._
   * Message
   */
 case class Message(id: Option[Long],
-                   title: String,
+                   title: Option[String],
                    body: String,
                    createAt: ZonedDateTime,
                    updateAt: ZonedDateTime)
